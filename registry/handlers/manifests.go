@@ -290,6 +290,9 @@ func etagMatch(r *http.Request, etag string) bool {
 
 // PutManifest validates and stores a manifest in the registry.
 func (imh *manifestHandler) PutManifest(w http.ResponseWriter, r *http.Request) {
+
+	fmt.Println("************ imh.tag %s exist************************", imh.Tag)
+
 	dcontext.GetLogger(imh).Debug("PutImageManifest")
 	manifests, err := imh.Repository.Manifests(imh)
 	if err != nil {
